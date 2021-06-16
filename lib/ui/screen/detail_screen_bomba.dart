@@ -25,6 +25,7 @@ class _DetailScreenBomba extends State<DetailScreenBomba>{
   File pickedImage;
   var imageFile;
   bool isImageLoaded = false;
+  int colorAppbar=0xFF5574E4;
 
 
   getImageFromGallery() async {
@@ -120,7 +121,7 @@ class _DetailScreenBomba extends State<DetailScreenBomba>{
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.indigo,
+        backgroundColor: Color(colorAppbar),
         title: Text('Captura Bomba Inf.',style: TextStyle(color: Colors.white),),
         centerTitle: true,
         leading:  IconButton(icon: Icon(Icons.arrow_back,color: Colors.white,), onPressed: (){

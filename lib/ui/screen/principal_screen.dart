@@ -29,6 +29,7 @@ class PrincipalScreen extends StatefulWidget{
 
 
 class _PrincipalScreen extends State<PrincipalScreen>{
+  int colorAppbar=0xFF5574E4;
   final _scaffoldkey = GlobalKey<ScaffoldState>();
 
   @override
@@ -39,7 +40,7 @@ class _PrincipalScreen extends State<PrincipalScreen>{
     return Scaffold(
       key: _scaffoldkey,
         appBar: AppBar(
-          backgroundColor: Colors.indigo,
+          backgroundColor: Color(colorAppbar),
           iconTheme: IconThemeData(color: Colors.white),
           title: Text('Grupo Ospedale',style:  TextStyle(fontSize: 20,fontWeight: FontWeight.w500, color: Colors.white),),
           //centerTitle: true,

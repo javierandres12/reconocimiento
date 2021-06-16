@@ -26,6 +26,7 @@ class _DetailScreen extends State<DetailScreen>{
   File pickedImage;
   var imageFile;
   bool isImageLoaded = false;
+  int colorAppbar=0xFF5574E4;
 
 
   getImageFromGallery() async {
@@ -133,7 +134,7 @@ class _DetailScreen extends State<DetailScreen>{
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.indigo,
+        backgroundColor: Color(colorAppbar),
         title: Text('Captura Monitor',style: TextStyle(color: Colors.white),),
         centerTitle: true,
         leading:  IconButton(icon: Icon(Icons.arrow_back,color: Colors.white,), onPressed: (){
