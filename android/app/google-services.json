@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "682891812608",
+    "project_id": "app-vision-6b5f3",
+    "storage_bucket": "app-vision-6b5f3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:682891812608:android:168824d6e3b77c7a819de5",
+        "android_client_info": {
+          "package_name": "com.ospedale.portubien.api_reconocimiento"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "682891812608-22qu41scrg2be4c49tb04pqg857j92mg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwX2NgQiWb-yn05aUd76fcPCRJlzie5Dw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "682891812608-22qu41scrg2be4c49tb04pqg857j92mg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
