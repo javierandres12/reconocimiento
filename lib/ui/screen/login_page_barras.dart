@@ -26,6 +26,9 @@ class LoginPageBarras extends StatefulWidget{
 
 class _LoginPageBarras extends State<LoginPageBarras>{
 
+  //int colorFront=0xFF93D3CB;//0xFF151F43
+  int colorFront=0xFF3B4C71;//
+  int colorSnackbar=0xFF93D3CB;
   ScanResult scanResult;
   String idScaner;
   String valueChoose;
@@ -38,7 +41,7 @@ class _LoginPageBarras extends State<LoginPageBarras>{
   List listItem = [];
   List listID = [];
   int item;
-  String Dominio="https://portubien.com.co/ams";
+  String Dominio="https://dev-ams.portubien.co";
 
   final _scaffoldkey = GlobalKey<ScaffoldState>();
 
@@ -66,7 +69,7 @@ class _LoginPageBarras extends State<LoginPageBarras>{
                 ],
               )
           ),
-          backgroundColor: Color(0xFF5574E4),
+          backgroundColor: Color(colorSnackbar),
           duration: Duration(minutes: 10),
         ));
         setState(() {
@@ -96,7 +99,7 @@ class _LoginPageBarras extends State<LoginPageBarras>{
         print(jsonLogin);
         if(response.statusCode==200){
           _scaffoldkey.currentState.removeCurrentSnackBar();
-          _scaffoldkey.currentState.showSnackBar(SnackBar(content: Text('Bienvenido a AMS'),duration: Duration(seconds: 1),backgroundColor: Color(0xFF5574E4)));
+          _scaffoldkey.currentState.showSnackBar(SnackBar(content: Text('Bienvenido'),duration: Duration(seconds: 1),backgroundColor: Color(colorSnackbar)));
 
 
           //Uri url1 = Uri.https(Dominio, "api/getListPabellones");
@@ -131,17 +134,17 @@ class _LoginPageBarras extends State<LoginPageBarras>{
 
         }else{
           _scaffoldkey.currentState.removeCurrentSnackBar();
-          _scaffoldkey.currentState.showSnackBar(SnackBar(content: Text('Usuario no registrado, por favor intentelo de nuevo',),duration: Duration(seconds: 1),backgroundColor: Color(0xFF5574E4),));
+          _scaffoldkey.currentState.showSnackBar(SnackBar(content: Text('Usuario no registrado, por favor intentelo de nuevo',),duration: Duration(seconds: 1),backgroundColor: Color(colorSnackbar),));
         }
 
       }else{
         _scaffoldkey.currentState.removeCurrentSnackBar();
-        _scaffoldkey.currentState.showSnackBar(SnackBar(content: Text('Por favor vuelva a escanear el codigo de barras'),duration: Duration(milliseconds: 350),backgroundColor: Color(0xFF5574E4)));
+        _scaffoldkey.currentState.showSnackBar(SnackBar(content: Text('Por favor vuelva a escanear el codigo de barras'),duration: Duration(milliseconds: 350),backgroundColor: Color(colorSnackbar)));
       }
 
     }else{
       _scaffoldkey.currentState.removeCurrentSnackBar();
-      _scaffoldkey.currentState.showSnackBar(SnackBar(content: Text('Por favor elige la clinica'),duration: Duration(seconds: 1),backgroundColor: Color(0xFF5574E4)));
+      _scaffoldkey.currentState.showSnackBar(SnackBar(content: Text('Por favor elige la clinica'),duration: Duration(seconds: 1),backgroundColor: Color(colorSnackbar)));
 
     }
 
@@ -220,16 +223,12 @@ class _LoginPageBarras extends State<LoginPageBarras>{
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Container(
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage("icons/logoAms.jpg"),
-                                    )
-                                ),
+                                child: Icon(Icons.fact_check_outlined, size: 100,color: Color(colorFront),),
                                 height: 100,
                                 width: screenwidht-40,
                                 margin: EdgeInsets.only(bottom: 5),
                               ),
-                              Text('Inicio de sesión Ams',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500,color: Colors.black),),
+                              Text('Inicio de sesión',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500,color: Colors.black),),
                               Container(
                                 margin: EdgeInsets.all(5),
                                 width: screenwidht-30,
@@ -266,8 +265,8 @@ class _LoginPageBarras extends State<LoginPageBarras>{
                                     print('se presiono Ingresar');
                                     _enviar();
                                   },
-                                  color1: 0xFF5574E4,
-                                  color2: 0xFF151F43,
+                                  color1: colorFront,
+                                  color2: colorFront,
                                   iconData: Icons.qr_code_scanner
                               ),
                               Container(
@@ -284,8 +283,8 @@ class _LoginPageBarras extends State<LoginPageBarras>{
                                             builder: (context) =>
                                                 LoginPageEmail()));
                                   },
-                                  color1: 0xFF5574E4,
-                                  color2: 0xFF151F43,
+                                  color1: colorFront,
+                                  color2: colorFront,
                                   iconData: Icons.email),
                             ],
                           ),

@@ -20,6 +20,7 @@ class DetailScreen extends StatefulWidget{
 }
 
 class _DetailScreen extends State<DetailScreen>{
+  int colorFront=0xFF3B4C71;//0xFF93D3CB
   List listaDatos=[];
   String selectedItem= "";
   var result = "";
@@ -134,7 +135,7 @@ class _DetailScreen extends State<DetailScreen>{
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(colorAppbar),
+        backgroundColor: Color(colorFront),
         title: Text('Captura Monitor',style: TextStyle(color: Colors.white),),
         centerTitle: true,
         leading:  IconButton(icon: Icon(Icons.arrow_back,color: Colors.white,), onPressed: (){
@@ -182,7 +183,7 @@ class _DetailScreen extends State<DetailScreen>{
         ],
       ),
       floatingActionButton: FloatingActionButton(
-          backgroundColor: Color(color1),
+          backgroundColor: Color(colorFront),
           child: Icon(Icons.check,color: Colors.white,),
           onPressed: readTextFromAnImage
       ),

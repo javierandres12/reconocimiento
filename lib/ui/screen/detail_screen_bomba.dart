@@ -1,5 +1,6 @@
 
 import 'dart:io';
+import 'package:api_reconocimiento/ui/widget/card_bomba.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -26,6 +27,7 @@ class _DetailScreenBomba extends State<DetailScreenBomba>{
   var imageFile;
   bool isImageLoaded = false;
   int colorAppbar=0xFF5574E4;
+  int colorFront=0xFF3B4C71;//0xFF93D3CB
 
 
   getImageFromGallery() async {
@@ -34,7 +36,6 @@ class _DetailScreenBomba extends State<DetailScreenBomba>{
       pickedImage=File(tempStore.path);
       isImageLoaded=true;
     });
-
   }
 
   getImageFromCamera() async {
@@ -69,7 +70,7 @@ class _DetailScreenBomba extends State<DetailScreenBomba>{
           // Same getters as TextBlock
           print(element.text);
           setState(() {
-            result = result +' '+ element.text;
+            result = result +'\n '+ element.text;
           });
 
         }
@@ -77,29 +78,6 @@ class _DetailScreenBomba extends State<DetailScreenBomba>{
 
     }
 
-    /*for(TextBlock block in readText.blocks){
-      for(TextLine line in block.lines){
-        for(TextElement word in line.elements){
-          setState(() {
-            result = result +' '+ word.text;
-          });
-          print(word.text.characters);
-          print(result);
-          /*if(word.text.length<=3){
-            try{
-              int numero = int.parse(word.text);
-              listaDa.add(numero.toString());
-              setState(() {
-                listaDatos=listaDa;
-              });
-              print(listaDatos);
-            }catch(e){
-              print('error no entero :${word.text}');
-            }
-          }*/
-        }
-      }
-    }*/
 
   }
 
@@ -121,7 +99,7 @@ class _DetailScreenBomba extends State<DetailScreenBomba>{
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(colorAppbar),
+        backgroundColor: Color(colorFront),
         title: Text('Captura Bomba Inf.',style: TextStyle(color: Colors.white),),
         centerTitle: true,
         leading:  IconButton(icon: Icon(Icons.arrow_back,color: Colors.white,), onPressed: (){
@@ -158,18 +136,18 @@ class _DetailScreenBomba extends State<DetailScreenBomba>{
             ),
           ) : Container(),
           Container(
-              margin: EdgeInsets.all(20),
-              padding: EdgeInsets.all(20),
+              margin: EdgeInsets.only(left: 20,right: 20,bottom: 20),
+              padding: EdgeInsets.only(left: 20,right: 20,bottom: 20),
               alignment: Alignment.center,
-              child: Text(result)/*CardMonitor(
+              child: CardBomba(
                 listaDatos: listaDatos,
                 result: result,
-            )*/
+            )
           )
         ],
       ),
       floatingActionButton: FloatingActionButton(
-          backgroundColor: Color(color1),
+          backgroundColor: Color(colorFront),
           child: Icon(Icons.check,color: Colors.white,),
           onPressed: readTextFromAnImage
       ),

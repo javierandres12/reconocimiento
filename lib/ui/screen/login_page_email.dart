@@ -20,6 +20,8 @@ class LoginPageEmail extends StatefulWidget {
 
 class _LoginPageEmail extends State<LoginPageEmail> {
   //TaskDataBase db = TaskDataBase();
+  int colorFront=0xFF3B4C71;
+  int colorSnackbar=0xFF93D3CB;
   ScanResult scanResult;
   String idScaner;
   String valueChoose;
@@ -28,7 +30,7 @@ class _LoginPageEmail extends State<LoginPageEmail> {
   List listItemPabe = [];
   List listIDPabe = [];
   Map<String, dynamic> jsonPabellon;
-  String Dominio="https://portubien.com.co/ams";
+  String Dominio="https://dev-ams.portubien.co";
 
 
   final _formkey = GlobalKey<FormState>();
@@ -51,7 +53,7 @@ class _LoginPageEmail extends State<LoginPageEmail> {
             ],
           )
       ),
-      backgroundColor: Color(0xFF5574E4),
+      backgroundColor: Color(colorSnackbar),
       duration: Duration(minutes: 10),
     ));
     if (_isSend) return;
@@ -97,9 +99,9 @@ class _LoginPageEmail extends State<LoginPageEmail> {
       if (response.statusCode == 200) {
         _scaffoldkey.currentState.removeCurrentSnackBar();
         _scaffoldkey.currentState.showSnackBar(SnackBar(
-            content: Text('Bienvenido a AMS'),
+            content: Text('Bienvenido'),
             duration: Duration(seconds: 1),
-            backgroundColor: Color(0xFF5574E4)));
+            backgroundColor: Color(colorSnackbar)));
 
 
         //Uri url1 = Uri.https(Dominio, "api/getListPabellones");
@@ -142,7 +144,7 @@ class _LoginPageEmail extends State<LoginPageEmail> {
               'Usuario no registrado, por favor verfique el usuario',
             ),
             duration: Duration(milliseconds: 1500),
-            backgroundColor: Color(0xFF5574E4)));
+            backgroundColor: Color(colorSnackbar)));
         setState(() {
           _isSend = false;
         });
@@ -152,7 +154,7 @@ class _LoginPageEmail extends State<LoginPageEmail> {
       _scaffoldkey.currentState.showSnackBar(SnackBar(
           content: Text('Por favor elige una clinica'),
           duration: Duration(seconds: 1),
-          backgroundColor: Color(0xFF5574E4)));
+          backgroundColor: Color(colorSnackbar)));
       setState(() {
         _isSend = false;
       });
@@ -232,17 +234,13 @@ class _LoginPageEmail extends State<LoginPageEmail> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage("icons/logoAms.jpg"),
-                                    )
-                                ),
+                                child: Icon(Icons.fact_check_outlined, size: 100,color: Color(colorFront),),
                                 height: 100,
                                 width: screenwidht-40,
                                 margin: EdgeInsets.only(bottom: 5),
                               ),
                               Text(
-                                'Inicio de sesión Ams',
+                                'Inicio de sesión',
                                 style: TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.w900,
@@ -350,8 +348,8 @@ class _LoginPageEmail extends State<LoginPageEmail> {
                                     print('Se presiono enviar');
                                     _enviar();
                                   },
-                                  color1: 0xFF5574E4,
-                                  color2: 0xFF151F43,
+                                  color1: colorFront,
+                                  color2: colorFront,
                                   iconData: Icons.email),
                               Container(
                                 padding: EdgeInsets.all(5),
@@ -367,8 +365,8 @@ class _LoginPageEmail extends State<LoginPageEmail> {
                                             builder: (context) =>
                                                 LoginPageBarras()));
                                   },
-                                  color1: 0xFF5574E4,
-                                  color2: 0xFF151F43,
+                                  color1: colorFront,
+                                  color2: colorFront,
                                   iconData: Icons.qr_code_scanner),
                             ],
                           ),

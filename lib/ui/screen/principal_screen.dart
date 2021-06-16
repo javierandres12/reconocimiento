@@ -29,7 +29,8 @@ class PrincipalScreen extends StatefulWidget{
 
 
 class _PrincipalScreen extends State<PrincipalScreen>{
-  int colorAppbar=0xFF5574E4;
+  int colorAppbar=0xFF3B4C71;//0xFF3B4C71
+  int colorFront=0xFF3B4C71;//0xFF93D3CB
   final _scaffoldkey = GlobalKey<ScaffoldState>();
 
   @override
@@ -55,8 +56,8 @@ class _PrincipalScreen extends State<PrincipalScreen>{
                     print('se presiono Machine Learning');
                     Navigator.push(context, MaterialPageRoute(builder: (context)=> DetailScreen()));
                   },
-                  color1: 0xFF285B82,
-                  color2: 0xFF285B82,
+                  color1: colorFront,
+                  color2: colorFront,
                   iconData: Icons.image_aspect_ratio
               ),
               ButtonSign(
@@ -65,8 +66,8 @@ class _PrincipalScreen extends State<PrincipalScreen>{
                     print('se presiono Machine Learning');
                     Navigator.push(context, MaterialPageRoute(builder: (context)=> DetailScreenBomba()));
                   },
-                  color1: 0xFF285B82,
-                  color2: 0xFF285B82,
+                  color1: colorFront,
+                  color2: colorFront,
                   iconData: Icons.image_aspect_ratio
               ),
             ],
@@ -78,11 +79,7 @@ class _PrincipalScreen extends State<PrincipalScreen>{
             children: [
               DrawerHeader(
                 child: Container(
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("icons/logoAms.jpg"),
-                      )
-                  ),
+                  child: Icon(Icons.fact_check_outlined, size: 100,color: Color(colorFront),),
                   height: 250,
                   width: screenWidth,
                 ),
